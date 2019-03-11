@@ -12,3 +12,6 @@ It works for native xunit tests.
 For specflow tests, it works partly. 
 
 IAsyncLifeTimes works, thanks to https://github.com/techtalk/SpecFlow/pull/1380 and using @xunit:collection(TestContextCollection). But then another new instance of TFixture is instantiated and injected in specflow steps. Also, InitializeAsync is not called for second instance.
+
+
+[![Build Status](https://sphinxy.visualstudio.com/SpecFlow3Core.XunitPlayground/_apis/build/status/SpecFlow3Core.XunitPlayground-ASP.NET%20Core-CI?branchName=master)](https://sphinxy.visualstudio.com/SpecFlow3Core.XunitPlayground/_build/latest?definitionId=1&branchName=master)
