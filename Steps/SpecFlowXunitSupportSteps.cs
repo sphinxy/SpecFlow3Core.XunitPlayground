@@ -7,23 +7,23 @@ namespace SpecFlow3Core.XunitPlayground.Steps
     [Binding]
     public class SpecFlowXunitSupportSteps
     {
-        private TestContext _testContext;
+        private TestFixture _testFixture;
 
-        public SpecFlowXunitSupportSteps(TestContext testContext)
+        public SpecFlowXunitSupportSteps(TestFixture testFixture)
         {
-            _testContext = testContext;
+            _testFixture = testFixture;
         }
 
         [Given(@"I have CollectionFixture with TFixture on tests")]
         public void GivenIHaveCollectionFixtureWithTFixtureOnTests()
         {
-            //manually confirm that we have [Collection(nameof(TestContextCollection))] on this steps
+            //manually confirm that we have [Collection(nameof(SampleCollection))] on this steps
         }
 
         [Given(@"TFixture of collection implements IAsyncLifetime")]
         public void GivenTFixtureOfCollectionImplementsIAsyncLifetime()
         {
-            //manually confirm that TestContext has IAsyncLifetime
+            //manually confirm that TestFixture has IAsyncLifetime
         }
 
         [When(@"I run tests via specflow with xunit runner")]
@@ -34,7 +34,7 @@ namespace SpecFlow3Core.XunitPlayground.Steps
         [Then(@"the InitializeAsync of TFixture should be called")]
         public void ThenTheInitializeAsyncOfTFixtureShouldBeCalled()
         {
-            Assert.True(_testContext.InitializeAsyncIsCalled);
+            Assert.True(_testFixture.InitializeAsyncIsCalled);
             //todo Somehow find that it's the same instance we have in CollectionInitialize, not a second instance created by BoDi.IObjectContainer 
         }
 

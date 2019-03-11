@@ -5,10 +5,10 @@ using Xunit;
 namespace SpecFlow3Core.XunitPlayground.XunitHelpers
 
 {
-    public class TestContext : IDisposable, IAsyncLifetime
+    public class TestFixture : IDisposable, IAsyncLifetime
     {
         public  bool InitializeAsyncIsCalled = false;
-        public TestContext()
+        public TestFixture()
         {
         }
 

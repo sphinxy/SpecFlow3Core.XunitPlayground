@@ -4,19 +4,18 @@ using Xunit;
 
 namespace SpecFlow3Core.XunitPlayground
 {
-    [Collection(nameof(TestContextCollection))]
+    [Collection(nameof(SampleCollection))]
     public class NativeXunitTest
     {
-        private TestContext _testContext;
-        public NativeXunitTest(TestContext testContext)
+        private TestFixture _testFixture;
+        public NativeXunitTest(TestFixture testFixture)
         {
-            Type reflectedTestContext = Type.GetType("specflow3core.xunit.playground.XunitHelpers.TestContext");
-            _testContext = testContext;
+            _testFixture = testFixture;
         }
         [Fact]
-        public void AsyncInitOfCollectionContextWorksViaNativeXunit()
+        public void AsyncInitOfCollectionFixtureWorksViaNativeXunit()
         {
-            Assert.True(_testContext.InitializeAsyncIsCalled);
+            Assert.True(_testFixture.InitializeAsyncIsCalled);
         }
     }
 }

@@ -17,8 +17,8 @@ namespace SpecFlow3Core.XunitPlayground.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.Collection("TestContextCollection")]
-    [Xunit.TraitAttribute("Category", "xunit:collection(TestContextCollection)")]
+    [Xunit.Collection("SampleCollection")]
+    [Xunit.TraitAttribute("Category", "xunit:collection(SampleCollection)")]
     public partial class SpecflowXunitSupportFeature : Xunit.IClassFixture<SpecflowXunitSupportFeature.FixtureData>, System.IDisposable
     {
         
@@ -36,7 +36,7 @@ namespace SpecFlow3Core.XunitPlayground.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specflow xunit support", "\tRunning xunit test via specflow and as native xunit test should be same", ProgrammingLanguage.CSharp, new string[] {
-                        "xunit:collection(TestContextCollection)"});
+                        "xunit:collection(SampleCollection)"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,12 +76,12 @@ namespace SpecFlow3Core.XunitPlayground.Features
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Async init of collection context works via Specflow Xunit")]
+        [Xunit.FactAttribute(DisplayName="Async init of collection fixture works via Specflow Xunit")]
         [Xunit.TraitAttribute("FeatureTitle", "Specflow xunit support")]
-        [Xunit.TraitAttribute("Description", "Async init of collection context works via Specflow Xunit")]
-        public virtual void AsyncInitOfCollectionContextWorksViaSpecflowXunit()
+        [Xunit.TraitAttribute("Description", "Async init of collection fixture works via Specflow Xunit")]
+        public virtual void AsyncInitOfCollectionFixtureWorksViaSpecflowXunit()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Async init of collection context works via Specflow Xunit", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Async init of collection fixture works via Specflow Xunit", null, ((string[])(null)));
             this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
             testRunner.Given("I have CollectionFixture with TFixture on tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
