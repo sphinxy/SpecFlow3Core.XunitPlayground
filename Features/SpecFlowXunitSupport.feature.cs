@@ -17,8 +17,6 @@ namespace SpecFlow3Core.XunitPlayground.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Xunit.Collection("SampleCollection")]
-    [Xunit.TraitAttribute("Category", "xunit:collection(SampleCollection)")]
     public partial class SpecflowXunitSupportFeature : Xunit.IClassFixture<SpecflowXunitSupportFeature.FixtureData>, System.IDisposable
     {
         
@@ -35,8 +33,7 @@ namespace SpecFlow3Core.XunitPlayground.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specflow xunit support", "\tRunning xunit test via specflow and as native xunit test should be same", ProgrammingLanguage.CSharp, new string[] {
-                        "xunit:collection(SampleCollection)"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specflow xunit support", "\tRunning xunit test via specflow and as native xunit test should be same", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -82,6 +79,21 @@ namespace SpecFlow3Core.XunitPlayground.Features
         public virtual void AsyncInitOfCollectionFixtureWorksViaSpecflowXunit()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Async init of collection fixture works via Specflow Xunit", null, ((string[])(null)));
+            this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+            testRunner.Given("I have CollectionFixture with TFixture on tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.And("TFixture of collection implements IAsyncLifetime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            testRunner.When("I run tests via specflow with xunit runner", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.Then("the InitializeAsync of TFixture should be called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Async init of collection fixture works via Specflow Xunit second run")]
+        [Xunit.TraitAttribute("FeatureTitle", "Specflow xunit support")]
+        [Xunit.TraitAttribute("Description", "Async init of collection fixture works via Specflow Xunit second run")]
+        public virtual void AsyncInitOfCollectionFixtureWorksViaSpecflowXunitSecondRun()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Async init of collection fixture works via Specflow Xunit second run", null, ((string[])(null)));
             this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
             testRunner.Given("I have CollectionFixture with TFixture on tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");

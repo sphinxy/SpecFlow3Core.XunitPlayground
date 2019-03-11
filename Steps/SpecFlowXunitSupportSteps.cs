@@ -1,9 +1,36 @@
-﻿using TechTalk.SpecFlow;
+﻿using BoDi;
+using TechTalk.SpecFlow;
 using SpecFlow3Core.XunitPlayground.XunitHelpers;
 using Xunit;
 
 namespace SpecFlow3Core.XunitPlayground.Steps
 {
+    [Binding]
+
+    public class TestFixtureInitHelper
+    {
+        private readonly IObjectContainer _objectContainer;
+        private static TestFixture _testFixture;
+        public TestFixtureInitHelper(IObjectContainer objectContainer)
+        {
+            _objectContainer = objectContainer;
+        }
+
+        [BeforeFeature()]
+        public static async void InitializeFixture()
+        {
+            _testFixture = new TestFixture();
+            await _testFixture.InitializeAsync();
+        }
+
+        [BeforeScenario()]
+        public void RegisterStaticInstanceInSpecflowDI()
+        {
+            _objectContainer.RegisterInstanceAs<TestFixture>(_testFixture);
+        }
+    }
+
+
     [Binding]
     public class SpecFlowXunitSupportSteps
     {
@@ -37,7 +64,5 @@ namespace SpecFlow3Core.XunitPlayground.Steps
             Assert.True(_testFixture.InitializeAsyncIsCalled);
             //todo Somehow find that it's the same instance we have in CollectionInitialize, not a second instance created by BoDi.IObjectContainer 
         }
-
-
     }
 }
