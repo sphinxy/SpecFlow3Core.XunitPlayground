@@ -11,4 +11,4 @@ It works for native xunit tests.
 
 For specflow tests, it works partly. 
 
-IAsyncLifeTimes via @works thanks to https://github.com/techtalk/SpecFlow/pull/1380 and using @xunit:collection(TestContextCollection). But then another new instance of TFixture is initialized and injected in specflow steps.
+IAsyncLifeTimes works, thanks to https://github.com/techtalk/SpecFlow/pull/1380 and using @xunit:collection(TestContextCollection). But then another new instance of TFixture is instantiated and injected in specflow steps. Also, InitializeAsync is not called for second instance.
